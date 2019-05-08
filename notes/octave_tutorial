@@ -88,6 +88,7 @@ OCTAVE TUTORIAL
     size(featuresX)   
 
     % v is first 10 elements of priceY
+    % Note that MATLAB vectors are 1-indexed
     v = priceY(1:10)
 
     % Save a variable in a file
@@ -247,3 +248,81 @@ OCTAVE TUTORIAL
 
     % Clear a figure
     clf;
+
+
+- Control Statements
+
+    v = zeros(10, 1)
+
+    % For loop
+    for i = 1:10,
+        v(i) = 2^i;
+    end;
+
+
+    % While loop
+    i = 1;
+    while i <= 5,
+        v(i) = 100;
+        i = i+1;
+    end;
+
+
+    % If statement
+    i = 1;
+    while true,
+        v(i) = 999;
+        i = i+1;
+        if i == 6,
+            break;
+        end;
+    end;
+
+    % If/elseif/else statement
+    if v(1) == 1,
+        disp('The value is one');
+    elseif v(1) == 2,
+        disp('The value is two');
+    else
+        disp('The value isn't one or two);
+    end;
+
+
+    % Define a function in a file (and navigate to the directory its in)
+    % y is the output
+    % x is the parameter
+    function y = squareThisNumber(x)
+    y = x^2;
+
+    % Now call it
+    squareThisNumber(5);
+
+
+    % Multiple return values
+    function [y1, y2] = squareAndCubeThisNumber(x)
+    y1 = x^2;
+    y2 = x^3;
+
+    % Call it
+    [a, b] = squareAndCubeThisNumber(5);
+
+
+- Vectorization
+
+    % theta is vector [theta-0, theta-1, ..., theta-n]
+    % x is vector [x-0, x-1, ..., x-n]
+    % prediction is h0(x)
+
+    % Unvectorized implementation to compute h0(x)
+    prediction = 0.0;
+    for j = 1:n+1,
+        prediction = prediction + theta(j) * x(j)
+    end;
+
+    % Vectorized implementation to compute h0(x)
+    prediction = theta' * x;
+
+
+- Vectorized Implementation of Gradient Descent
+
+    
