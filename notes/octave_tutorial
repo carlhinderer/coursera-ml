@@ -321,8 +321,3 @@ OCTAVE TUTORIAL
 
     % Vectorized implementation to compute h0(x)
     prediction = theta' * x;
-
-
-- Vectorized Implementation of Gradient Descent
-
-    
